@@ -7,9 +7,11 @@
     "test": "test"
   },
   "scripts": {
+    "start": "node src/server.js",
     "test": "npm run test-router && npm run test-logic ",
     "test-router": "nyc tape ./test/router.test.js | tap-spec",
-    "test-logic": "nyc tape ./test/logic.test.js | tap-spec"
+    "test-logic": "nyc tape ./test/logic.test.js | tap-spec",
+    "dev": "nodemon src/server.js"
   },
   "repository": {
     "type": "git",
@@ -23,10 +25,15 @@
   "homepage": "https://github.com/fac-13/PaGiToNi#readme",
   "devDependencies": {
     "eslint": "^4.19.1",
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
     "nodemon": "^1.17.2",
     "nyc": "^11.6.0",
     "supertest": "^3.0.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.9.0"
+  },
+  "dependencies": {
+    "request": "^2.85.0"
   }
 }

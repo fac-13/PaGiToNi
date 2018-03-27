@@ -7,7 +7,9 @@
     "test": "test"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\""
+    "test": "npm run test-router && npm run test-logic ",
+    "test-router": "nyc tape ./test/router.test.js | tap-spec",
+    "test-logic": "nyc tape ./test/logic.test.js | tap-spec"
   },
   "repository": {
     "type": "git",

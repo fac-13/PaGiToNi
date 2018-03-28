@@ -34,16 +34,28 @@ button.addEventListener("click", function(e) {
 function displayResults(articles) {
   for (var i = 0; i < articles.length; i++) {
     var newsArticle = document.createElement("article");
+    newsArticle.className = 'article';
     var newsTitle = document.createElement("h2");
+    newsTitle.className = 'article__title';
     var newsImage = document.createElement("img");
+    newsImage.className = 'article__img';
     var newsDesc = document.createElement("p");
+    newsDesc.className = 'article__p';
+    var link = document.createElement("a");
+
+    
     newsTitle.innerText = articles[i].title;
     newsImage.src = articles[i].urlToImage;
+    newsImage.alt = articles[i].title;
+    link.href = articles[i].url;
+    link.title = "Click to go to the source";
+    link.target ="_blank";
     newsDesc.innerText = articles[i].description;
     newsArticle.appendChild(newsImage);
     newsArticle.appendChild(newsTitle);
-    newsArticle.appendChild(newsDesc);
-    sectionResults.appendChild(newsArticle);
+    newsArticle.appendChild(newsDesc);    
+    link.appendChild(newsArticle);
+    sectionResults.appendChild(link);
   }
 }
 

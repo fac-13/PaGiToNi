@@ -47,26 +47,10 @@ function displayResults(articles) {
   }
 }
 
-
-const search = function () {
-  const inputTerms = input.value.toLowerCase();
-  if (inputTerms !== "") {
-    const url = `/api/search?q=${inputTerms}`;
-    fetchXhr(url, function (error, response) {
-      if (error) {
-        console.error(error);
-      } else {
-        clearContents(dataList);
-        dataListPopulate(response);
-      }
-    });
-  }
-};
-
-const clearContents = function (container) {
-  input.setAttribute("autocomplete", "off");
-  while (container.firstChild) {
-    container.removeChild(container.firstChild);
+//function to clear homepage
+var clearContents = function () {
+  while (sectionResults.firstChild) {
+    sectionResults.removeChild(sectionResults.firstChild);
   }
 };
 

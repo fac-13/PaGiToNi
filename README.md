@@ -1,4 +1,4 @@
-Server API Call Project
+Server API Call Project  [![Build Status](https://travis-ci.org/fac-13/PaGiToNi.svg?branch=master)](https://travis-ci.org/fac-13/PaGiToNi)
 ====================
 
 Team PaGiToNi has built a site that allows you to view the latest news from a variety of reputable news sources, and search for news relating to issues of your choice 👍

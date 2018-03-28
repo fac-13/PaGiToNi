@@ -21,8 +21,9 @@ const handleHome = (request, response) => {
 const handleLatest = (req, res) => {
   let sources =
     "bbc-news, the-guardian-uk, the-new-york-times, al-jazeera-english";
+    let numArticles = 30;
   request(
-    `https://newsapi.org/v2/top-headlines?sources=${sources}&apiKey=${
+    `https://newsapi.org/v2/top-headlines?sources=${sources}&pageSize=${numArticles}&apiKey=${
       process.env.NEWS_API_KEY
     }`,
     (error, response, body) => {

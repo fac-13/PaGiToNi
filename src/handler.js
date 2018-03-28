@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 const request = require("request");
-require("env2")("config.env");
++require("env2")("config.env");
 
 const handleHome = (request, response) => {
   const filePath = path.join(__dirname, "..", "public", "index.html");
@@ -19,8 +19,10 @@ const handleHome = (request, response) => {
 };
 
 const handleLatest = (req, res) => {
+  let sources =
+    "bbc-news, the-guardian-uk, the-new-york-times, al-jazeera-english";
   request(
-    `https://newsapi.org/v2/top-headlines?sources=bbc-news&the-guardian-uk&apiKey=${
+    `https://newsapi.org/v2/top-headlines?sources=${sources}&apiKey=${
       process.env.NEWS_API_KEY
     }`,
     (error, response, body) => {

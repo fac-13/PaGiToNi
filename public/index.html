@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang='en'>
+
 <head>
+    <title>Dog Hunt</title>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Pagitoni News</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="public/style.css" />
-    <script src="public/index.js"></script>
+    <link rel='icon' type='image/x-icon' href='/public/favicon.ico' />
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/style.css" />
 </head>
+
 <body>
-    <h1>Hello</h1>
-    
+
+    <header class="header">
+        <h1 class="header__title">Hello gorgeous!</h1>
+        <form id="form">
+            <input type="text" id="search-box" class="header__input" placeholder="Search a topic" autoFocus required aria-label="Search Box">
+            <button id="submit-button" type="submit" class="form__submit-button">Go!</button>
+        </form>
+    </header>
+
+    <section class="section__results" id="section-results">
+
+    </section>
+
 </body>
+<script src="/public/index.js"></script>
+
 </html>

@@ -1,6 +1,8 @@
 const path = require('path');
 const fs = require('fs');
 const request = require('request');
+const config = require('../config.env')
+const key = config.newsKey;
 
 const handleHome = (request, response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html');
@@ -17,5 +19,22 @@ const handleHome = (request, response) => {
   })
 }
 
+const handleLatest = (req, res) => {
+  request(`https://newsapi.org/v2/top-headlines?sources=bbc-news&the-guardian-uk&apiKey=${key}`, (error, response, body) => {
+    if (error) {
+      console.log(error);
+      res.writeHead(500, { 'Content-Type': 'text/html' });
+      res.end('<h1>Sorry we can\'t find latest news</h1>');
+    } else {
+      const articles = JSON.parse(body).articles;
+      res.writeHead(200, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify(articles));
+    }
+  })
+} 
 
-module.exports = { handleHome }
+
+module.exports = { 
+  handleHome,
+  handleLatest,
+ }

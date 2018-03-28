@@ -2,7 +2,6 @@ const test = require('tape');
 const router = require('../src/router'); 
 const supertest = require('supertest'); 
 const nock = require('nock');
-const dummy = require('./dummy-data.json');
 const path = require('path');
 
 

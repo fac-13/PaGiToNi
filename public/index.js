@@ -3,6 +3,7 @@ const input = document.getElementById("js-search-box");
 const button = document.getElementById("js-submit-button");
 const sectionResults = document.getElementById("js-section-results");
 
+//xhr request template 
 var xhrRequest = function (url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function () {
@@ -14,7 +15,6 @@ var xhrRequest = function (url, callback) {
   xhr.open("GET", url, true);
   xhr.send();
 };
-
 
 //XHR request to display latest news on page load
 xhrRequest('/latest', displayResults);

@@ -20,7 +20,8 @@ const handleHome = (request, response) => {
 }
 
 const handleLatest = (req, res) => {
-  request(`https://newsapi.org/v2/top-headlines?sources=bbc-news&the-guardian-uk&apiKey=${key}`, (error, response, body) => {
+  let sources = "bbc-news, the-guardian-uk, the-new-york-times, al-jazeera-english"
+  request(`https://newsapi.org/v2/top-headlines?sources=${sources}&apiKey=${key}`, (error, response, body) => {
     if (error) {
       console.log(error);
       res.writeHead(500, { 'Content-Type': 'text/html' });

@@ -1,48 +1,46 @@
-# Project
+Server API Call Project
+====================
 
-Web app that provides users with frequently updated content on a regular or continuous basis and allows users to search its content.
+Team PaGiToNi has built a site that allows you to view the latest news from a variety of reputable news sources, and search for news relating to issues of your choice 👍
 
-A good example could be a news app but feel free to be creative!
+Completed Key objectives ☺️
+-------------------------------------------------------------------------------------------------------------------------------
 
-### Description
+-   [x]  Use at least 1 API
+-   [x]  Make your API calls from the back-end using the Request module (or one you build yourself)
+-   [x]  The server contains a minimum of 2 routes
+-   [x]  Back-end testing with Tape
+-   [x]  Server testing with Supertest to inject fake HTTP requests
+-   [x]  Project hosted on Heroku
+-   [x]  Using module.exports and require to break a single large server file into smaller modules.
+-   [x]  Employ continuous intergration on your project with Travis or a similar tool (not currently passing..)
 
-Create a website that will include user input and content that can be updated regularly, with the content sourced via an API.
 
-### Example:
+Stretch goals still to complete
+----------------------------------------------------------------------------------------------------------------
+-   [ ]  Allow users to search via categories, countries etc.
+-   [ ]  Allow users to scroll across pages to view more than the set amount of news articles
 
-Example User Stories:
-'As a student at F&C I want to know all the train departure times from Bethnal Green tube station, so that I can get home in time for dinner'.
 
-'As a regular commuter, I want to input which direction of travel I am interested in so that I can see information that is relevant to me.'
+Our journey 🚗
+---------------------------------------------------------------------------------------------------------
 
-This news feed could be created with data provided via the [TFL API](https://api.tfl.gov.uk/).
+### Day One (Tuesday)
 
-You can build on this user story or create your own user stories as long as they are consistent and the below specs are fulfilled.
+-   We used a whiteboard to draw up a basic software architecture
+-   etc.
 
-### Specs:
+### Day Two (Wednesday)
 
-1) Use at least 1 API 
 
-2) Make your API calls from the back-end using the Request module (or one you build yourself)
 
-3) Your server should contain a minimum of 2 routes
+### Resources
 
-4) We expect back-end testing using tape (test as many components as you can) and basic front-end testing.
+-   News API: 
+[https://newsapi.org](https://newsapi.org)
+-   Loading spinner : 
+[http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/)
 
-5) Test your server by injecting fake HTTP requests using Supertest. 
+### [ ](https://github.com/fac-13/vithAutocomplete/blob/master/README.md#photo-of-our-software-architecture)Photo of our software architecture:
 
-6) Host your project on heroku, see [resources](https://github.com/foundersandcoders/master-reference/blob/master/coursebook/week-5/resources.md)
-
-7) Use module.exports and require to break a single large server file into smaller modules.
-
-8) Consider a good server file structure based on what we have discussed over the week.
-
-9) Employ continuous intergration on your project with Travis or a similar tool. (If you decide to use Travis, we strongly recommend that you host this project in your own repo rather than in your cohort's FAC repository to avoid all builds getting queued together)
-
-10) Use CodeCov or a similar tool for test coverage.
-
-11) Display continuous intergration and code coverage badges on your project README. 
-
-12) Ensure that errors are handled, if for example a user attempts to make a request to a non-existent route to your server, provide the user with a custom response.    
-
-13) Include a user input field on your web app and include server-side validation to protect your server from potentially malicious user input.
+[![image](https://user-images.githubusercontent.com/32312712/37800572-2d904380-2e1b-11e8-9f47-f6eee1cbb0c7.png)](https://user-images.githubusercontent.com/32312712/37800572-2d904380-2e1b-11e8-9f47-f6eee1cbb0c7.png)

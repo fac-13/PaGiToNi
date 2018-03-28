@@ -1,3 +1,4 @@
+/* eslint-disable */
 const input = document.getElementById("search-box");
 const submitButton = document.getElementById("submit-button");
 const sectionResults = document.getElementById("section-results");
@@ -15,12 +16,12 @@ const sectionResults = document.getElementById("section-results");
 // }
 
 (function() {
-    var url = '/';
+    var url = '/latest';
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4 && xhr.status === 200) {
       var results = JSON.parse(xhr.responseText);
-      
+      displayResults(results);
     }
   };
   xhr.open("GET", url, true);
@@ -50,7 +51,18 @@ const clearContents = function(container) {
   }
 };
 
-const displayResults = function (results) {
+const displayResults = function (articles) {
+  for (var i =0 ; i < articles.length; i++) {
     var newsArticle = document.createElement('article');
-    var newsTitle =
+    var newsTitle = document.createElement('h2');
+    var newsImage = document.createElement('img');
+    var newsDesc = document.createElement('p');
+    newsTitle.innerText = articles[i].title;
+    newsImage.src = articles[i].urlToImage;
+    newsDesc.innerText = articles[i].description;
+    newsArticle.appendChild(newsImage);
+    newsArticle.appendChild(newsTitle);
+    newsArticle.appendChild(newsDesc);
+    sectionResults.appendChild(newsArticle);
+  }
 }

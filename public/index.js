@@ -3,9 +3,13 @@ function clientxhr (url, cb) {
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4) {
             var result = JSON.parse(xhr.responseText);
-            cd(result);
+            cb(result);
+            console.log(cb(result));
         }
     };
     xhr.open('GET', url, true);
     xhr.send();
 }
+
+console.log(clientxhr('https://dog.ceo/api/breed/beagle/images/random', cb));
+);

@@ -11,6 +11,10 @@ else if(url === "/latest"){
     handler.handleLatest(request, response);
 
 }
+else if (url.indexOf("public")!== -1){
+    console.log("Public route reached"); 
+    handler.handleStatic(request, response); 
+}
 else {
     response.writeHead(404, {'Content-Type':'text/html'}); 
     response.end("Page not found"); 

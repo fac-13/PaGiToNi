@@ -1,3 +1,5 @@
+/* eslint-disable */
+
 const path = require("path");
 const fs = require("fs");
 const request = require("request");
@@ -22,7 +24,7 @@ const handleLatest = (req, res) => {
   let sources =
     "bbc-news, the-guardian-uk, the-new-york-times, al-jazeera-english";
   let numArticles = 30;
-  console.log("req.url: ", req.url);
+  
   request(
     `https://newsapi.org/v2/top-headlines?sources=${sources}&pageSize=${numArticles}&apiKey=${
       process.env.NEWS_API_KEY
@@ -72,8 +74,32 @@ const handleStatic = (request, response) => {
   });
 };
 
+const handleSearch = (req, res) => {
+  let searchedInput = req.url.split("=")[1];
+  let sources =
+    "bbc-news, the-guardian-uk, the-new-york-times, al-jazeera-english";
+  let numArticles = 20;
+
+  request(
+    `https://newsapi.org/v2/everything?q=${searchedInput}&sources=${sources}&pageSize=${numArticles}&apiKey=${
+      process.env.NEWS_API_KEY
+    }`,
+    (error, response, body) => {
+      if (error) {
+        console.log(error);
+        res.writeHead(500, { "Content-Type": "text/html" });
+        res.end("<h1>Sorry we can't find latest news</h1>");
+      } else {
+        const articles = JSON.parse(body).articles;
+        res.writeHead(200, { "Content-Type": "application/json" });
+        res.end(JSON.stringify(articles));
+      }
+    }
+  );
+};
 module.exports = {
   handleHome,
   handleLatest,
-  handleStatic
+  handleStatic,
+  handleSearch
 };

@@ -1,6 +1,6 @@
 const path = require('path');
 const fs = require('fs');
-
+const request = require('request');
 
 const handleHome = (request, response) => {
   const filePath = path.join(__dirname, '..', 'public', 'index.html');

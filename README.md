@@ -41,6 +41,3 @@ Our journey 🚗
 -   Loading spinner : 
 [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/)
 
-### [ ](https://github.com/fac-13/vithAutocomplete/blob/master/README.md#photo-of-our-software-architecture)Photo of our software architecture:
-
-[![image](https://user-images.githubusercontent.com/32312712/37800572-2d904380-2e1b-11e8-9f47-f6eee1cbb0c7.png)](https://user-images.githubusercontent.com/32312712/37800572-2d904380-2e1b-11e8-9f47-f6eee1cbb0c7.png)

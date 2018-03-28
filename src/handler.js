@@ -24,6 +24,7 @@ const handleLatest = (req, res) => {
   let sources =
     "bbc-news, the-guardian-uk, the-new-york-times, al-jazeera-english";
   let numArticles = 30;
+  
   request(
     `https://newsapi.org/v2/top-headlines?sources=${sources}&pageSize=${numArticles}&apiKey=${
       process.env.NEWS_API_KEY
@@ -62,7 +63,7 @@ const handleStatic = (request, response) => {
   fs.readFile(filePath, (error, file) => {
     if (error) {
       response.writeHead(500, { "Content-Type": "text/html" });
-      response.end("<h1>Sorry we can't find the static file</h1>");
+      response.end("Sorry we can't find the static file");
     } else {
       response.writeHead(200, {
         "Content-Type": `${extensionType[extension]}`

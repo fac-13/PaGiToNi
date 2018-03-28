@@ -8,7 +8,7 @@
   },
   "scripts": {
     "start": "node src/server.js",
-    "test": "npm run test-router && npm run test-logic ",
+    "test": "nyc tape ./test/*.test.js | tap-spec",
     "test-router": "nyc tape ./test/router.test.js | tap-spec",
     "test-logic": "nyc tape ./test/logic.test.js | tap-spec",
     "dev": "nodemon src/server.js"
@@ -27,6 +27,7 @@
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.9.0",
+    "nock": "^9.2.3",
     "nodemon": "^1.17.2",
     "nyc": "^11.6.0",
     "supertest": "^3.0.0",

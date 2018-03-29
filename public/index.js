@@ -54,6 +54,7 @@ function displayResults(error, articles) {
     sectionResults.style.display = "block";
     sectionResults.innerHTML = '<h3>No results found! <br> Please try another search query</h3>';
   } else {
+  sectionResults.style.display = "grid";  
   for (var i = 0; i < articles.length; i++) {
     if (articles[i].urlToImage && articles[i].urlToImage.startsWith("http")) {
       var newsArticle = document.createElement("article");

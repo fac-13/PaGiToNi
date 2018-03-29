@@ -116,6 +116,7 @@ var deleteLink = function (){
     while(navbar.firstChild){
       navbar.removeChild(navbar.firstChild);       
     }
+    input.value = ""; 
  }
 
 //function to clear homepage

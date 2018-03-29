@@ -91,6 +91,7 @@ function displayResults(error, articles) {
   }
 }
 
+//function to create link to hompepage when on results page 
 var linkToHomePage = function(){
   if(!navbar.firstChild){
   var link = document.createElement("a"); 

@@ -46,6 +46,7 @@ function displayResults(error, articles) {
     return;
   } else {
   if (articles.length === 0) {
+    sectionResults.style.display = "block";
     sectionResults.innerHTML = '<h3>No results found! <br> Please try another search query</h3>';
   } else {
   for (var i = 0; i < articles.length; i++) {

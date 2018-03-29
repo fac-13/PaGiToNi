@@ -18,6 +18,12 @@ h1 {
     font-size: 1.7rem;
 }
 
+h3 {
+    color: #302f2f;
+    font-size: 1.5rem;
+    text-align: center;
+}
+
 .header{
     display: flex;
     width: 100%;

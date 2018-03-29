@@ -16,7 +16,6 @@ var xhrRequest = function(url, callback) {
         callback(null, results);
       } else {
         callback('error');
-        console.log(callback);
       }
     }
   };
@@ -31,7 +30,11 @@ xhrRequest("/latest", displayResults);
 button.addEventListener("click", function(e) {
   e.preventDefault();
   var q = input.value.toLowerCase().trim();
-  if (q) {
+  if (q === '') {
+    input.style.boxShadow = "0 0 10px red";
+    input.placeholder = "Please type some text";
+  } else {
+    input.style.boxShadow = "0 0 0 grey";
     clearContents();
     var query = "?q=" + q;
     var url = "/search" + query;
@@ -43,11 +46,15 @@ button.addEventListener("click", function(e) {
 function displayResults(error, articles) {
   if (error) {
     console.log(error, "something went wrong");
+    sectionResults.style.display = "block";
+    sectionResults.innerHTML = "<h3>Something went wrong from our part. <br> Please try again later</h3>";    
     return;
   } else {
   if (articles.length === 0) {
+    sectionResults.style.display = "block";
     sectionResults.innerHTML = '<h3>No results found! <br> Please try another search query</h3>';
   } else {
+  sectionResults.style.display = "grid";  
   for (var i = 0; i < articles.length; i++) {
     if (articles[i].urlToImage && articles[i].urlToImage.startsWith("http")) {
       var newsArticle = document.createElement("article");

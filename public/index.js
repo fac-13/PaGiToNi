@@ -3,6 +3,7 @@ const input = document.getElementById("js-search-box");
 const button = document.getElementById("js-submit-button");
 const sectionResults = document.getElementById("js-section-results");
 const loader = document.getElementById("loader");
+const title = document.querySelector(".header__title"); 
 
 //xhr request template
 var xhrRequest = function(url, callback) {
@@ -38,6 +39,12 @@ button.addEventListener("click", function(e) {
     xhrRequest(url, displayResults);
   }
 });
+
+//XHR request to refresh or go back to homepage with latest news 
+title.addEventListener("click", function(){
+  clearContents();
+  xhrRequest("/latest", displayResults);
+}); 
 
 //function to display news on page
 function displayResults(error, articles) {

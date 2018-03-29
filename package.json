@@ -10,7 +10,6 @@
     "start": "node src/server.js",
     "test": "nyc tape ./test/*.test.js | tap-spec",
     "test-router": "nyc tape ./test/router.test.js | tap-spec",
-    "test-logic": "nyc tape ./test/logic.test.js | tap-spec",
     "dev": "nodemon src/server.js"
   },
   "repository": {

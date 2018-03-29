@@ -3,7 +3,7 @@ Server API Call Project  [![Build Status](https://travis-ci.org/fac-13/PaGiToNi.
 
 Team PaGiToNi has built a site that allows you to view the latest news from a variety of reputable news sources, and search for news relating to issues of your choice 👍
 
-Completed Key objectives ☺️
+Completed Key objectives 🏄‍🏄‍🏄‍🏄‍
 -------------------------------------------------------------------------------------------------------------------------------
 
 -   [x]  Use at least 1 API
@@ -16,9 +16,9 @@ Completed Key objectives ☺️
 -   [x]  Employ continuous intergration on your project with Travis or a similar tool (not currently passing..)
 
 
-Stretch goals still to complete
+Stretch goals still to complete 🙆‍
 ----------------------------------------------------------------------------------------------------------------
--   [ ]  Allow users to search via categories, countries etc.
+-   [ ]  Allow users to search via categories, countries, sources etc.
 -   [ ]  Allow users to scroll across pages to view more than the set amount of news articles
 
 
@@ -28,9 +28,22 @@ Our journey 🚗
 ### Day One (Tuesday)
 
 -   We used a whiteboard to draw up a basic software architecture
--   etc.
+-   We decided on our priorities for this project, namely: a clearly structured, documented API to allow us to focus on back-end requests 
+-   We mob-programmed the initial setup
 
 ### Day Two (Wednesday)
+-   Splitting into pairs👯‍, we started with:
+    1. the first API call and its handler
+    2. the xhr to reach the first API's route and handler
+
+-  Reconvening to plan our next steps, we decided on:
+    1.   beginning work on the second, user-input API call
+    2.   prepping the front-end to render the response from the first xhr and API
+
+### Biggest challenge: Mocking API calls
+
+-  We attempted to test our back-end handlers using **nock** to mock an external API call. After struggling with it for several hours, we ultimately couldn't get it to work. 😭
+
 
 
 
@@ -41,3 +54,5 @@ Our journey 🚗
 -   Loading spinner : 
 [http://tobiasahlin.com/spinkit/](http://tobiasahlin.com/spinkit/)
 
+### Our initial software architecture plan:
+![software architecture](https://i.imgur.com/ivyRkAP.jpg "title")

@@ -2,7 +2,7 @@
 const input = document.getElementById("js-search-box");
 const button = document.getElementById("js-submit-button");
 const sectionResults = document.getElementById("js-section-results");
-const loader = document.getElementById("loader");
+const loader = document.getElementById("js-loader");
 var title = document.querySelector(".header__title"); 
 var navbar = document.querySelector(".navbar")
 
@@ -21,11 +21,11 @@ var xhrRequest = function(url, callback1, callback2) {
         callback2(); 
         }
       } else {
-        callback1('error');
-        console.log(callback1);
+        callback('error');
       }
     }
   };
+
   xhr.open("GET", url, true);
   xhr.send();
 };
@@ -37,7 +37,11 @@ xhrRequest("/latest", displayResults);
 button.addEventListener("click", function(e) {
   e.preventDefault();
   var q = input.value.toLowerCase().trim();
-  if (q) {
+  if (q === '') {
+    input.style.boxShadow = "0 0 10px red";
+    input.placeholder = "Please type some text";
+  } else {
+    input.style.boxShadow = "0 0 0 grey";
     clearContents();
     var query = "?q=" + q;
     var url = "/search" + query;
@@ -56,11 +60,15 @@ title.addEventListener("click", function(){
 function displayResults(error, articles) {
   if (error) {
     console.log(error, "something went wrong");
+    sectionResults.style.display = "block";
+    sectionResults.innerHTML = "<h3>Something went wrong from our part. <br> Please try again later</h3>";    
     return;
   } else {
   if (articles.length === 0) {
+    sectionResults.style.display = "block";
     sectionResults.innerHTML = '<h3>No results found! <br> Please try another search query</h3>';
   } else {
+  sectionResults.style.display = "grid";  
   for (var i = 0; i < articles.length; i++) {
     if (articles[i].urlToImage && articles[i].urlToImage.startsWith("http")) {
       var newsArticle = document.createElement("article");

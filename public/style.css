@@ -80,13 +80,17 @@ a{
 }
 
 .navbar {
-    height: 5vh; 
-    background-color: grey; 
+    height: 2rem; 
+    background-color: #f2f2f2; 
 }
+
 .navbar__link{
     color: #841d03; 
     text-decoration: underline; 
     cursor: pointer; 
+    background: none; 
+    padding-top: 0.2rem;
+    line-height: 2rem;  
 }
 
 .section__results{

@@ -48,7 +48,7 @@ button.addEventListener("click", function(e) {
 //XHR request to refresh or go back to homepage with latest news 
 title.addEventListener("click", function(){
   clearContents();
-  // deleteLink(); 
+  deleteLink(); 
   xhrRequest("/latest", displayResults);
 }); 
 
@@ -92,19 +92,22 @@ function displayResults(error, articles) {
 }
 
 var linkToHomePage = function(){
+  if(!navbar.firstChild){
   var link = document.createElement("a"); 
   link.classList.add("navbar__link"); 
   var p = document.createTextNode("< Back to homepage"); 
+  link.href = "/"; 
   link.appendChild(p); 
   navbar.appendChild(link);  
+  }
 }
 
 //function to delete the "back to homepage" link
-// var deleteLink = function (){
-//     while(document.querySelector(".homepage").firstChild){
-      
-//     }
-//  }
+var deleteLink = function (){
+    while(navbar.firstChild){
+      navbar.removeChild(navbar.firstChild);       
+    }
+ }
 
 //function to clear homepage
 var clearContents = function() {

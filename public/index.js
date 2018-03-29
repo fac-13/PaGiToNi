@@ -3,10 +3,12 @@ const input = document.getElementById("js-search-box");
 const button = document.getElementById("js-submit-button");
 const sectionResults = document.getElementById("js-section-results");
 const loader = document.getElementById("loader");
-const title = document.querySelector(".header__title"); 
+var title = document.querySelector(".header__title"); 
+var navbar = document.querySelector(".navbar")
+
 
 //xhr request template
-var xhrRequest = function(url, callback) {
+var xhrRequest = function(url, callback1, callback2) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState === 4) {
@@ -14,10 +16,13 @@ var xhrRequest = function(url, callback) {
       loader.classList.add("hidden");
       if (xhr.status === 200){
         var results = JSON.parse(xhr.responseText);
-        callback(null, results);
+        callback1(null, results);
+        if (callback2){
+        callback2(); 
+        }
       } else {
-        callback('error');
-        console.log(callback);
+        callback1('error');
+        console.log(callback1);
       }
     }
   };
@@ -36,13 +41,14 @@ button.addEventListener("click", function(e) {
     clearContents();
     var query = "?q=" + q;
     var url = "/search" + query;
-    xhrRequest(url, displayResults);
+    xhrRequest(url, displayResults,linkToHomePage);
   }
 });
 
 //XHR request to refresh or go back to homepage with latest news 
 title.addEventListener("click", function(){
   clearContents();
+  // deleteLink(); 
   xhrRequest("/latest", displayResults);
 }); 
 
@@ -84,6 +90,21 @@ function displayResults(error, articles) {
     }
   }
 }
+
+var linkToHomePage = function(){
+  var link = document.createElement("a"); 
+  link.classList.add("navbar__link"); 
+  var p = document.createTextNode("< Back to homepage"); 
+  link.appendChild(p); 
+  navbar.appendChild(link);  
+}
+
+//function to delete the "back to homepage" link
+// var deleteLink = function (){
+//     while(document.querySelector(".homepage").firstChild){
+      
+//     }
+//  }
 
 //function to clear homepage
 var clearContents = function() {

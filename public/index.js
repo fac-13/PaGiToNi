@@ -11,11 +11,11 @@ var xhrRequest = function(url, callback) {
     if (xhr.readyState === 4) {
       loader.classList.remove("visible");
       loader.classList.add("hidden");
-      if (xhr.status === 200){
+      if (xhr.status === 200) {
         var results = JSON.parse(xhr.responseText);
         callback(null, results);
       } else {
-        callback('error');
+        callback("error");
       }
     }
   };
@@ -29,8 +29,10 @@ xhrRequest("/latest", displayResults);
 //XHR request to display news matching user input
 button.addEventListener("click", function(e) {
   e.preventDefault();
+  loader.classList.remove("hidden");
+  loader.classList.add("visible");
   var q = input.value.toLowerCase().trim();
-  if (q === '') {
+  if (q === "") {
     input.style.boxShadow = "0 0 10px red";
     input.placeholder = "Please type some text";
   } else {
@@ -47,38 +49,43 @@ function displayResults(error, articles) {
   if (error) {
     console.log(error, "something went wrong");
     sectionResults.style.display = "block";
-    sectionResults.innerHTML = "<h3>Something went wrong from our part. <br> Please try again later</h3>";    
+    sectionResults.innerHTML =
+      "<h3>Something went wrong from our part. <br> Please try again later</h3>";
     return;
   } else {
-  if (articles.length === 0) {
-    sectionResults.style.display = "block";
-    sectionResults.innerHTML = '<h3>No results found! <br> Please try another search query</h3>';
-  } else {
-  sectionResults.style.display = "grid";  
-  for (var i = 0; i < articles.length; i++) {
-    if (articles[i].urlToImage && articles[i].urlToImage.startsWith("http")) {
-      var newsArticle = document.createElement("article");
-      newsArticle.className = "article";
-      var newsTitle = document.createElement("h2");
-      newsTitle.className = "article__title";
-      var newsImage = document.createElement("img");
-      newsImage.className = "article__img";
-      var newsDesc = document.createElement("p");
-      newsDesc.className = "article__p";
-      var link = document.createElement("a");
+    if (articles.length === 0) {
+      sectionResults.style.display = "block";
+      sectionResults.innerHTML =
+        "<h3>No results found! <br> Please try another search query</h3>";
+    } else {
+      sectionResults.style.display = "grid";
+      for (var i = 0; i < articles.length; i++) {
+        if (
+          articles[i].urlToImage &&
+          articles[i].urlToImage.startsWith("http")
+        ) {
+          var newsArticle = document.createElement("article");
+          newsArticle.className = "article";
+          var newsTitle = document.createElement("h2");
+          newsTitle.className = "article__title";
+          var newsImage = document.createElement("img");
+          newsImage.className = "article__img";
+          var newsDesc = document.createElement("p");
+          newsDesc.className = "article__p";
+          var link = document.createElement("a");
 
-      newsTitle.innerText = articles[i].title;
-      newsImage.src = articles[i].urlToImage;
-      newsImage.alt = articles[i].title;
-      link.href = articles[i].url;
-      link.title = "Click to go to the source";
-      link.target = "_blank";
-      newsDesc.innerText = articles[i].description;
-      newsArticle.appendChild(newsImage);
-      newsArticle.appendChild(newsTitle);
-      newsArticle.appendChild(newsDesc);
-      link.appendChild(newsArticle);
-      sectionResults.appendChild(link);
+          newsTitle.innerText = articles[i].title;
+          newsImage.src = articles[i].urlToImage;
+          newsImage.alt = articles[i].title;
+          link.href = articles[i].url;
+          link.title = "Click to go to the source";
+          link.target = "_blank";
+          newsDesc.innerText = articles[i].description;
+          newsArticle.appendChild(newsImage);
+          newsArticle.appendChild(newsTitle);
+          newsArticle.appendChild(newsDesc);
+          link.appendChild(newsArticle);
+          sectionResults.appendChild(link);
         }
       }
     }

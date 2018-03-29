@@ -1,8 +1,8 @@
 /* eslint-disable */
-const input = document.getElementById("js-search-box");
-const button = document.getElementById("js-submit-button");
-const sectionResults = document.getElementById("js-section-results");
-const loader = document.getElementById("loader");
+var input = document.getElementById("js-search-box");
+var button = document.getElementById("js-submit-button");
+var sectionResults = document.getElementById("js-section-results");
+var loader = document.getElementById("js-loader");
 
 //xhr request template
 var xhrRequest = function(url, callback) {

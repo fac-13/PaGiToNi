@@ -16,7 +16,6 @@ var xhrRequest = function(url, callback) {
         callback(null, results);
       } else {
         callback('error');
-        console.log(callback('error'));
       }
     }
   };

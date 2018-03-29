@@ -31,7 +31,11 @@ xhrRequest("/latest", displayResults);
 button.addEventListener("click", function(e) {
   e.preventDefault();
   var q = input.value.toLowerCase().trim();
-  if (q) {
+  if (q === '') {
+    input.style.boxShadow = "0 0 10px red";
+    input.placeholder = "Please type some text";
+  } else {
+    input.style.boxShadow = "0 0 0 grey";
     clearContents();
     var query = "?q=" + q;
     var url = "/search" + query;

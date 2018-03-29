@@ -44,11 +44,8 @@ const handleLatest = (req, res) => {
 };
 
 const handleStatic = (request, response) => {
-  //console.log("handle static reached");
-  //console.log("Request.url :", request.url);
 
   const extension = request.url.split(".")[1];
-  //console.log("Extension :", extension);
 
   const extensionType = {
     html: "text/html",
@@ -59,7 +56,6 @@ const handleStatic = (request, response) => {
   };
 
   const filePath = path.join(__dirname, "..", request.url);
-  //console.log("filePath: ", filePath);
   fs.readFile(filePath, (error, file) => {
     if (error) {
       response.writeHead(500, { "Content-Type": "text/html" });
@@ -68,7 +64,6 @@ const handleStatic = (request, response) => {
       response.writeHead(200, {
         "Content-Type": `${extensionType[extension]}`
       });
-     // console.log("Content type:", `${extensionType[extension]}`);
       response.end(file);
     }
   });

@@ -8,14 +8,16 @@ const loader = document.getElementById("loader");
 var xhrRequest = function(url, callback) {
   var xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
-    if (xhr.readyState === 4 && xhr.status === 200) {
+    if (xhr.readyState === 4) {
       loader.classList.remove("visible");
       loader.classList.add("hidden");
-      var results = JSON.parse(xhr.responseText);
-      callback(results);
-    } else {
-      loader.classList.remove("hidden");
-      loader.classList.add("visible");
+      if (xhr.status === 200){
+        var results = JSON.parse(xhr.responseText);
+        callback(null, results);
+      } else {
+        callback('error');
+        console.log(callback);
+      }
     }
   };
   xhr.open("GET", url, true);
@@ -28,16 +30,24 @@ xhrRequest("/latest", displayResults);
 //XHR request to display news matching user input
 button.addEventListener("click", function(e) {
   e.preventDefault();
-  if (input.value) {
+  var q = input.value.toLowerCase().trim();
+  if (q) {
     clearContents();
-    var query = "?q=" + input.value.toLowerCase().trim();
+    var query = "?q=" + q;
     var url = "/search" + query;
     xhrRequest(url, displayResults);
   }
 });
 
 //function to display news on page
-function displayResults(articles) {
+function displayResults(error, articles) {
+  if (error) {
+    console.log(error, "something went wrong");
+    return;
+  } else {
+  if (articles.length === 0) {
+    sectionResults.innerHTML = '<h3>No results found! <br> Please try another search query</h3>';
+  } else {
   for (var i = 0; i < articles.length; i++) {
     var newsArticle = document.createElement("article");
     newsArticle.className = "article";
@@ -61,7 +71,9 @@ function displayResults(articles) {
     newsArticle.appendChild(newsDesc);
     link.appendChild(newsArticle);
     sectionResults.appendChild(link);
+   }
   }
+ }
 }
 
 //function to clear homepage

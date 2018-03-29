@@ -16,7 +16,7 @@ var xhrRequest = function(url, callback) {
         callback(null, results);
       } else {
         callback('error');
-        console.log(callback);
+        console.log(callback('error'));
       }
     }
   };
@@ -43,6 +43,8 @@ button.addEventListener("click", function(e) {
 function displayResults(error, articles) {
   if (error) {
     console.log(error, "something went wrong");
+    sectionResults.style.display = "block";
+    sectionResults.innerHTML = "<h3>Something went wrong from our part. <br> Please try again later</h3>";    
     return;
   } else {
   if (articles.length === 0) {

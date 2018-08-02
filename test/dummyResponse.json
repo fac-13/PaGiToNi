@@ -1,0 +1,30 @@
+{
+  "status": "ok",
+  "totalResults": 2,
+  "articles": [
+    {
+      "source": {
+        "id": "the-guardian-uk",
+        "name": "The Guardian (UK)"
+      },
+      "author": "Graeme Wearden",
+      "title": "UK construction growth hits 14-month high ahead of interest rate decision - business live",
+      "description": "All the day’s economic and financial news, as Britain’s central bankers announce whether interest rates are rising to a nine-year high",
+      "url": "https://www.theguardian.com/business/live/2018/aug/02/bank-of-england-interest-rate-decision-mark-carney-sterling-brexit-business-live",
+      "urlToImage": "https://i.guim.co.uk/img/media/d97a923a2846feae1223fb3b6d2adacc8804d307/0_199_3500_2100/master/3500.jpg?w=1200&h=630&q=55&auto=format&usm=12&fit=crop&crop=faces%2Centropy&bm=normal&ba=bottom%2Cleft&blend64=aHR0cHM6Ly9hc3NldHMuZ3VpbS5jby51ay9pbWFnZXMvb3ZlcmxheXMvZmQ2MTg4YTJlMWFhNThmNWM5Y2VkODlkNjQxOWU1OTgvdGctbGl2ZS5wbmc=&s=84215700c7d3423bc91a0c8aa8bb1e08",
+      "publishedAt": "2018-08-02T10:35:02Z"
+    },
+    {
+      "source": {
+        "id": "the-guardian-uk",
+        "name": "The Guardian (UK)"
+      },
+      "author": "Steven Morris",
+      "title": "Chances missed to save Cardiff toddler killed by father, review finds",
+      "description": "Doctor and social workers failed to spot or record injuries to Elsie Scully-Hicks, says report",
+      "url": "https://www.theguardian.com/society/2018/aug/02/professionals-missed-chances-to-protect-toddler-killed-by-father-elsie-scully-hicks",
+      "urlToImage": "https://i.guim.co.uk/img/media/bc4b7a1e4a79275461abf611069766b2f89759ed/0_282_1475_884/master/1475.jpg?w=1200&h=630&q=55&auto=format&usm=12&fit=crop&crop=faces%2Centropy&bm=normal&ba=bottom%2Cleft&blend64=aHR0cHM6Ly9hc3NldHMuZ3VpbS5jby51ay9pbWFnZXMvb3ZlcmxheXMvZDM1ODZhNWVmNTc4MTc1NmQyMWEzYjYzNWU1MTcxNDEvdGctZGVmYXVsdC5wbmc=&s=6fcb7989dd74850d5eb2da19e69d1acb",
+      "publishedAt": "2018-08-02T10:34:53Z"
+    }
+  ]
+}
